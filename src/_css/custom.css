@@ -110,7 +110,8 @@ input[type="file"] {
     padding: 2px 11px;
     border: 0px;
     border-radius: 2px;
-    background-color: rgba(250, 255, 199, 1)
+    background-color: rgba(250, 255, 199, 1);
+    margin-bottom: 10px;
 }
 
 #containerLoginRegister h1{
