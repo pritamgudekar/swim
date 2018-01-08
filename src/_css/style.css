@@ -1,0 +1,261 @@
+/* ------------------------------------------EXTRA SMALL ------------------------------------------*/
+@media only screen and (min-width: 250px) and (max-width:479px)
+{
+  .contactus-container{padding: 0.01em 5px !important;}
+.loader h1{font-size: 40px !important;line-height: 300px;}
+.img-holder{height: 380px !important;background-position: 0% 50%;}
+/*.contact-field, .selected{max-width: 250px !important}*/
+.lessons-div{min-width: 300px; width: 30%; padding: 0px !important;margin-top: 15% !important;}
+.input-holder{flex:4}
+.resigtration_head{margin-top:29.5%;}
+.icon-pack{padding-left: 0px !important}
+}
+/* ------------------------------------------SMALL ------------------------------------------*/
+@media only screen and (min-width: 480px) and (max-width:766px)
+{
+.img-holder{height: 400px}
+.lessons-div{min-width: 300px; width: 30%;  padding: 0px !important;margin-top: 12% !important;}
+.resigtration_head{margin-top:20.5%;}
+.my-menu{margin-right: 0% !important;}
+.my-menu li a{letter-spacing: 1px;}
+}
+
+/*------------------------------------------ MEDIUM ------------------------------------------*/
+
+@media only screen and (min-width: 767px) and (max-width:1199px)
+{.img-holder{height: 490px}
+.loader h1{font-size:7em; }
+.container1{margin: 0 100px;}
+.lessons-div:nth-child(2){transform: scale(1,1)}
+.resigtration_head{margin-top:13.5%;}
+.my-menu li{margin-right: 20px}
+.mySlides {background-color:black; min-height: 280px !important;	height: 100%;}
+.lessons-div{min-width: 50vh;width: 30%;}
+.pricetab{margin-top: 10% !important;}
+}
+/*---------------------------------------- LARGE ------------------------------------------*/
+@media only screen and (min-width: 1200px)
+{
+.img-holder{height: 580px}
+.loader h1{font-size:7em; position: relative !important;}
+.lessons-div{  min-width: 300px;  width: 26%;}
+.inner-reg{margin-left: 7%; margin-right: 10%;}
+.frst{margin-left:150px;}
+.container1{margin: 0 100px;}
+.lessons-div:nth-child(2){transform: scale(1.2,1.2)}
+ .resigtration_head{margin-top:8.5%;}
+ .my-menu li{margin-right: 20px}
+}
+.loader h1{font-size:5em;background-position: 0% -10%;	color:rgba(255,255,255,0.6);-webkit-background-clip:text;	animation: animate 7s linear infinite;animation-fill-mode: forwards;z-index:12;}
+.loader h1{font-family: 'Shadows Into Light'; margin-top:7%; }
+.img-holder:after{content: '';position: absolute;top:56.75px;left: 0;width: 100%;height: inherit;background-color: black;opacity: 0.4;z-index:11;}
+#demo{position: fixed;z-index: 1111;width: 100%;  }
+.my-menu{margin-right: 6%;}
+
+@media only screen and (min-width: 200px) and (max-width:399px)
+{.lessons-div{margin-left: 30px !important;margin-right: 10px !important;}
+}
+
+@media only screen and (min-width: 400px) and (max-width:479px)
+{.lessons-div{margin-left: 30px !important;margin-right: 0px !important;}
+}
+
+@media only screen and (min-width: 480px) and (max-width:566px)
+{.lessons-div{margin-left: 90px !important;margin-right: 60px !important;}}
+
+@media only screen and (min-width: 567px) and (max-width:684px)
+{.lessons-div{margin-left: 120px !important;margin-right: 120px !important;}}
+
+@media only screen and (min-width: 685px) and (max-width:766px)
+{.lessons-div{margin-left: 190px !important;margin-right: 100px !important;}}
+@media only screen and (min-width: 767px) and (max-width:1199px)
+{.pricetab{margin-left: 50px !important;margin-right: 0px !important;}
+.lessons-div{margin-top: 20px;}}
+/**/
+body {font-family: 'Roboto', sans-serif;background-color: #f7f7f7;margin: 0px;padding: 0px;}
+
+.raleway{font-family: 'Raleway', sans-serif; color: #fff;}
+
+ul li a{font-size: 13px;color: #fff;letter-spacing: 2.2px;}
+
+ul li::after{content:' ';position: relative;left: 0px;top: 0px;background-color: black;
+color: black;height: 1px;width: 10px;color: white;}
+
+ul li a:hover{color: white !important;background-color: #499ef1 !important;}
+
+.h-animate::before{position: relative;top: 2.99%;left:4%;
+background: linear-gradient(to left, #0097d3 0%,rgba(240,162,83,0) 90%,rgba(255,255,255,0) 100%);
+}
+ .h-animate::before, .h-animate::after{content:"";display: block;width: 40%;height: 1px;}
+
+.h-animate::after{position: relative;top: -14.99%;left: 55.9% !important;
+background: linear-gradient(to right, #0097d3 0%,rgba(240,162,83,0) 90%,rgba(255,255,255,0) 100%);
+}
+
+.grad-border{
+content:"";display: inline-block;width: 30%;height: 1px;text-align:center;
+background: radial-gradient(center, #000 0%,rgba(240,162,83,0) 90%,rgba(255,255,255,0) 100%);
+background: -moz-radial-gradient(center, #000 0%,rgba(240,162,83,0) 90%,rgba(255,255,255,0) 100%);
+background: -webkit-radial-gradient(center, #000 0%,rgba(240,162,83,0) 90%,rgba(255,255,255,0) 100%);
+}
+
+img {-webkit-filter: blur(0px);  filter: blur(0px);min-width:100%;max-height: 50%;}
+.img-holder{text-align: center;width: 100%;
+background-image: url('images/butterfly-swimmers.jpg');
+background-position: 45% 0%;
+background-size: cover;background-repeat: no-repeat; background-color: #cccccc;
+ overflow: hidden !important;}
+
+.magic{width:100%;height: 150px;display: block;}
+
+.img-holder2{display: inline-block;}
+
+.loader{overflow: hidden;}
+
+.circle-in{background-color: white;padding: 10px;width: 180px;height: 180px;
+margin: 20px;border-radius: 50%;font-family: 'Shadows Into Light', cursive;font-size: 19px;}
+
+#outer-layer{display: inline-block;margin-top: 3.8%;}
+.circle-in p{margin-top:39px;margin-bottom: 0px !important;}
+.testimonial{font-family: 'Shadows Into Light', cursive;}
+
+#know-test:hover{background-color: #000 !important;}
+
+.mySlides {display:none;background-color: #fdea79 !important;min-height: 280px;height:100%;text-align: center;}
+
+h4{margin-top:5%;font-size:28px;}
+
+.contactus-container{text-align: center !important;width: 100%;height: 100%;}
+
+.aboutus-container{color: black;position: relative;z-index: -10;}
+
+.aboutus-container::before{content: "";position: absolute;top: 0px;left: 0px;width: 100%;height: 100%;z-index: -11;}
+
+.contactus{background-color: white;height:100%;position: relative;padding-bottom: 20px;max-width: 450px;width: 100%;background-image: url('images/2-back.png');background-size: fit;}
+
+.container-before{display: inline-block;background-color: white;height:100%;z-index: 111 !important;max-width: 450px;width: 100%;padding-bottom: 10px;}
+
+.contact-field{margin-top: 10%;border: 0px;border-bottom: 1px solid #fff;padding: 0px;background: transparent;padding: 10px;text-align:center;color: #fff;box-sizing: content-box;}
+
+.contact-field:focus{outline: none;}
+.contact-field, .selected{max-width: 268px}
+option{color: #000;}
+
+.button{font-size: 16px;font-weight: thin;letter-spacing: 2px;position: relative;cursor: pointer;margin-left: 4%; margin-right: auto; width:250px; height:40px; border: 0px; color:#499ef1; background-color:#fff; border: 1px solid #499ef1;}
+
+.button:hover:after{opacity:1;}
+
+/*<!-------------------FOR MIN 750PX WIDTH---------------------------->*/
+
+@media only screen and (max-width: 1178px) {
+
+
+.mySlides p{padding: 0% !important;}
+
+.lessons-div{display: block;}
+}
+
+/*<!-------------------FOR MIN 500PX WIDTH---------------------------->*/
+
+@media only screen and (max-width: 500px) {
+.mySlides {color: black; min-height: 420px;	height: 100%;}
+
+.mySlides p{padding: 0% !important;}
+}
+
+::-webkit-input-placeholder {
+color: #fff; opacity:1; font-family: 'Raleway', sans-serif;}
+
+:-moz-placeholder { color: #fff; opacity:1; font-family: 'Raleway', sans-serif;}
+
+::-moz-placeholder {color: #fff;opacity:1; font-family: 'Raleway', sans-serif;}
+
+:-ms-input-placeholder {color: #fff; opacity:1; font-family: 'Raleway', sans-serif;}
+
+.instructor-container{width: 100%;height: 100%;min-height: 650px;	overflow: hidden;	position: relative;z-index:-111;}
+
+.instructor-container:before{content: '';position: absolute ;top: 0;left: 0;background-color: #737373;width: 100%;height: 100%;opacity: 0.7;z-index:-1;}
+
+.icon-bounce{transition: 0.2s ease-in;}
+
+.icon-bounce:hover{transform: translateY(10px)}
+
+.bounce{transition: 0.2s ease-in;}
+
+.bounce:hover{transform: translateY(-5px);}
+
+.w3-third img{margin-bottom: 2px; opacity: 0.8; cursor: pointer; transition: 0.2s ease-in;
+}
+.w3-third img:hover{opacity: 1}
+.services li{padding: 32px !important;}
+.services li a:hover{color: white !important;background-color: #499ef1 !important;}
+
+.lessons-div{display: block;}
+
+.lessons-div:nth-child(2){margin:0px;
+padding: 0px !important;border: 0px !important;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+
+.lessons-div ul{border: 0px !important;transition: transform 0.2s;}
+
+.lessons-div ul li{background-color: #0294e6;border: 0px !important;color: white;}
+
+.lessons-div ul li:nth-child(1){padding-top: 70px !important;background-color:#273238 !important;color: #efefef;box-sizing: border-box;}
+
+.reg-button{box-shadow: 0px 0px 5px 0px #000;}
+
+.reg-button:hover {cursor: pointer;}
+
+.contact-form-holder{  display: flex;  flex-direction: row;  justify-content: space-between;}
+
+.contact-div{flex-wrap: wrap;flex-basis: 50%;}
+/*-----------------------------------HEADS--------------*/
+.sm-menu-ul{background-color: #000;z-index: 111;text-align: center;width: 100%;}
+/*.sm-menu-ul li {display: inline-block;text-align: center !important;}
+.sm-menu-ul li a{width: 50% !important;}*/
+.btn-drp{background-color: #fff !important;}
+/*.small-menu{margin-top: 140px;}*/
+.outer-reg, .inner-reg{margin: auto;width: 100%;display: block;text-align: center;}
+.pricetab{margin-top: 6%;}
+.price_cont{display: block;text-align: center;}
+
+.btn{transition: all ease-in 0.4s;  border: 1px solid black;}
+.btn:hover{background-color: #fff !important;color:black!important; }
+
+.chck-holder span{letter-spacing: 2px;margin-right: 10px;}
+.chck-holder{background-color: transparent !important;}
+
+.thanks{font-family:'Roboto', sans-serif;letter-spacing:2px;}
+.seeoff-quote{display: inline-block;margin-top: 2%;}
+.seeoff-quote span{display: inline-block;vertical-align: bottom;margin-left: 5px;}
+.log img{width: 18px !important;height: auto;display: inline-block;}
+.log {width: 98px;}
+.quot{font-family: 'Shadows Into Light', cursive;  color: white; font-size: 36px;}
+.social-ic{width:42px; height:42px;}
+.icon-pack li{display: inline-block; margin-left:20px;}
+.icon-pack li a{text-decoration: none; display: inline-block;}
+.icon-pack li a:hover{text-decoration: none !important;background-color:#121f1f !important;}
+.credit{color:#203838;font-size: 9px;}
+
+
+.prnx{margin-top:10px;text-align: center;}
+
+.prnx img{border: 1px solid transparent; border-radius: 50%;width: 3.5%;cursor:pointer;min-width:40px;background-color: transparent;box-shadow: 0px 0px 10px 0px #0f0f0f}
+.prnx span:nth-child(2){margin-left:10px}
+#img01, #modal01, .change-pic{transition: all ease-in 0.2s !important;}
+#modal01{background-color: #eccfff;}
+.closeit{z-index: 11111}
+
+
+@media screen and (min-width: 700px) {
+.instructor-container{
+  background-image: url('images/Gallery/_HIM6077.JPG');background-size: cover;background-position: 0% 0%;
+}
+}
+
+
+@media screen and (max-width: 699px) {
+.instructor-container{
+  background-image: url('images/coach-bg.JPG');background-size: cover;background-position: 0% 0%;
+}
+}

@@ -61,22 +61,102 @@ input[type="file"] {
   display: inline; }
 
 /*	Template - Login	*/
-body{
+#body{
 	background-image: url("../_images/butterfly-swimmers.jpg");
 	background-repeat: round;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -1;
+}
+
+#container-header{
+	height: 10%;
+	background-color: #121f1f;
+}
+
+#container-footer{
+	height: 5%;
+	background-color: #121f1f;
+}
+
+.marginBottom5{
+	margin-bottom: 5px;
+}
+
+.marginBottom10{
+	margin-bottom: 10px;
 }
 
 .container{
 	border: 0px solid red;
 	padding: 5%;
-	background: -webkit-radial-gradient(center, #000 0%,rgba(260,178,103,0) 100%,rgba(255,255,255,0) 100%);
-    opacity: 0.7;
-    color: #000000;
+	background: -webkit-radial-gradient(center, #FFF -100%,rgba(260,178,103,0) 100%,rgba(255,255,255,0) 100%);
+    color: #fff !important;
+    height: 85%;
 }
 
 #containerLoginRegister #contLet, #containerLoginRegister #contRight{
-	border: 1px solid blue;
-	width: 50%;
+	border: 0px solid blue;
+	width: 45%;
 	height: 100%;
 	float: left;
+}
+
+#containerLoginRegister .inputText{
+	display: block;
+	width: 100%;
+    height: 34px;
+    padding: 2px 11px;
+    border: 0px;
+    border-radius: 2px;
+    background-color: rgba(250, 255, 199, 1)
+}
+
+#containerLoginRegister h1{
+	font-weight: bold;
+    font-size: 24px;
+}
+
+#containerLoginRegister a{
+	color: #fff !important;
+    font-size: 11px;
+    text-decoration: underline;
+}
+
+#containerLogin, #containerRegister{
+	
+}
+
+#linkForgotPassword{
+	float: right;
+}
+
+.centerContent{
+	width: 10%;
+	border: 0px solid red;
+	float: left;
+	text-align: center;
+}
+
+.big_button {
+    background-color: #111344;
+    color: #fff;
+    border: 0px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-family: Arial,Verdana,sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    height: 34px;
+    margin: 5px 0;
+}
+
+.loginSeperator {
+    border-left: 1px dotted #fff;
+    width: 1px;
+    height: 500px;
+    text-align: center;
+    display: inline-block;
 }
