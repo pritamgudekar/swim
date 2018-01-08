@@ -1,0 +1,82 @@
+/*
+ * Custom CSS Style for NoodleTools
+ */
+@font-face {
+  font-family: "dripicons";
+  src: url("fonts/dripicons.eot");
+  src: url("fonts/dripicons.eot?#iefix") format("embedded-opentype"), url("fonts/dripicons.woff") format("woff"), url("fonts/dripicons.ttf") format("truetype"), url("fonts/dripicons.svg#dripicons") format("svg"); }
+@font-face {
+  font-family: "fontawesome";
+  src: url("fonts/fontawesome-webfont.eot");
+  src: url("fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/fontawesome-webfont.woff") format("woff"), url("fonts/fontawesome-webfont.ttf") format("truetype"), url("fonts/fontawesome-webfont.svg#FontAwesome") format("svg"); }
+@font-face {
+  font-family: 'lato-regular';
+  src: url("fonts/Lato-Regular.eot");
+  src: url("fonts/Lato-Regular.woff") format("woff"), url("fonts/Lato-Regular.svg") format("svg");
+  src: url("fonts/Lato-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "lato-black";
+  src: url("fonts/Lato-Black.ttf") format("truetype"); }
+@font-face {
+  font-family: "lato-bold";
+  src: url("fonts/Lato-Bold.ttf") format("truetype"); }
+html {
+  -ms-overflow-style: scrollbar; }
+
+body, html, .container-fluid, .container {
+  height: 100%;
+  min-width: 950px; }
+
+body {
+  font-family: 'lato-regular', Arial, sans-serif;
+  background: rgba(30, 91, 153, 0.1); }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'lato-regular', Arial, sans-serif; }
+
+span.dripicons {
+  font-family: dripicons; }
+
+span.fontawesome {
+  font-family: fontawesome; }
+
+.latoblack {
+  font-family: latoblack; }
+
+/* style for Notecard tabletop */
+.table {
+  margin-bottom: 5px;
+  font-size: 13px; }
+
+.fl {
+  float: left; }
+
+label {
+  font-weight: normal; }
+
+textarea {
+  resize: none; }
+
+input[type="file"] {
+  display: inline; }
+
+/*	Template - Login	*/
+body{
+	background-image: url("../_images/butterfly-swimmers.jpg");
+	background-repeat: round;
+}
+
+.container{
+	border: 0px solid red;
+	padding: 5%;
+	background: -webkit-radial-gradient(center, #000 0%,rgba(260,178,103,0) 100%,rgba(255,255,255,0) 100%);
+    opacity: 0.7;
+    color: #000000;
+}
+
+#containerLoginRegister #contLet, #containerLoginRegister #contRight{
+	border: 1px solid blue;
+	width: 50%;
+	height: 100%;
+	float: left;
+}

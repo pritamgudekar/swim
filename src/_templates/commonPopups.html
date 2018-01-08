@@ -1,0 +1,417 @@
+<!-- Modal for show 30-days log work done -->
+<div class="modal fade" id="modal30DaysLogForProject" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <span class="modal-title popupHeader" id="myModalLabel"><span class="popupTitleFontSize" data-i18n="PROJECT_30_DAYS_HISTORY_LOG">Project history log</span></span>
+                <div class="modal-message">
+                    <span class="undeleteProjectMessage" ></span>
+                    <span class="messageText"></span>
+                </div>
+            </div>
+            <div class="modal-body historyModalBody">
+                <!-- <button type="button" id="submitUndeleteProjects" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-repeat"></span> <span data-i18n="UNDELETE_BTN">Undelete</span></button> -->
+                <div class="">
+                    <p><span data-i18n="HISTORY_LOG_P1">This log displays a 30-day history of this project. Most common actions are logged, including any time a citation or notecard is created, edited or deleted.</span></p>
+                    <p><span data-i18n="HISTORY_LOG_P2">The most recent actions are displayed at the top.</span></p>
+                </div>
+                <div class="divHistoryLog"> 
+                    <table class="table table-hover table-striped tableHistoryLog historyLog">
+                        <colgroup>
+                            <col width='30%'></col>
+                            <col width='70%'></col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="addTimezoneForLog" data-i18n="HOSTORY_LOG_DATE"></th>
+                                <th data-i18n="HISTORY_LOG_ACTION">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal for Confirm-->
+<div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog popupAlertWidth">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <span class="modal-title popupHeader" id="myModalLabel"><span class="popupTitleFontSize" data-i18n="DELETE_NC_CONFIRM_HEADER">Confirm</span></span>
+            </div>
+
+            <div class="modal-body alertBodyPadding">
+                <div class="row">
+                    <span class="glyphicon glyphicon-question-sign font36 col-sm-1"></span>
+                    <span class="col-sm-10" data-i18n="DELETE_NC_CONFIRM_TEXT">Are you sure you want to delete the selected notecards?</span>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" data-i18n="DELETE_NC_CONFIRM_NO_BTN">No</button>
+                <button id="deleteSelectedElements" type="button" class="btn btn-default btn-sm" data-dismiss="modal" data-i18n="DELETE_NC_CONFIRM_YES_BTN">Yes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- modal for google account ID -->
+<div class="modal fade" id="modalGoogleAccountId" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        	<form id="formGoogleAccountId" name="formGoogleAccountId" action="" method="POST">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <span class="modal-title popupHeader" id="myModalLabel"><span data-i18n="GOOGLE_ACCOUNT_SETTINGS_LABEL"></span></span>
+                <div class="modal-message"><span class="messageText"></span></div>
+            </div>                              
+            <div class="modal-body projectModalBody">
+                <div class="row" data-i18n="GOOGLE_ACCOUNT_SETTINGS_LINE"></div>
+                <div class="row marginTop10">
+                	<div class="col-xs-3"><span data-i18n="PROJECT_INBOX_GOOGLE_ACCOUNT_ID"></span></div>
+                	<div class="col-xs-8"><input type="email" id="googleIdName" name="googleIdName" class="form-control"></input></div>
+                </div>
+                <div class="row marginTop10" id='divGoogleIdCheckGapp'>
+                	<span>
+
+                        <input type="hidden" name="gapp_domain" value="gmail.com">
+                        
+                    </span>
+                </div>
+                <!--<div class="marginTop10" id='divGoogleIdCheckGapp'>
+                	<div class="col-xs-3"></div>
+                	<input type="checkbox" value="1" id="googleIdCheckGapp" name="googleIdCheckGapp" /> <span> This is for Education</span>
+                </div>-->
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="googleIDPopupSubmit" class="btn btn-default btn-sm activeGreen"><span class="glyphicon glyphicon-ok"></span> Submit</button>
+            </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- Template to show 30-days log work done -->
+<script type="text/template" id="30DaysLogForProject-template">
+	<% _.each(historyLog, function(log) { %>
+		<tr>
+			<td><%=log.actionDate%></td>
+			<td><%=log.actioninfo_display_label%></td>
+		</tr>
+	<% }) %>
+</script>
+
+<!-- Template for conditional actions for log -->
+<script type="text/template" id="actionLogs-template">
+</script>
+
+<!-- Modal for Manage save comments -->
+<div class="modal fade" id="modalManageComments" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <span class="modal-title popupHeader" id="myModalLabel"><span class="popupTitleFontSize" data-i18n="MANAGE_SAVED_COMMENTS">Edit my comment bank</span></span>
+                <div class="modal-message">
+                    <span id="savedCommentMessage" class="error"></span>
+                </div>
+            </div>
+            <div class="modal-body modal-fix">
+                <button id="showNewCommentRow" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus marginRight3"></span> <span>New comment</span></button>
+                <div class="btn-group selectCategoryGroup">
+                    <select id="categoryDd" class="form-control selectCategoryId">
+                        <option value="projects"><span data-i18n="TAB_PROJECT">Project</span></option>
+                        <option value="sources"><span data-i18n="PROJECT_SOURCES">Sources</span></option>
+                        <option value="notecards"><span data-i18n="HEADER_MAINMENU_NOTECARDS">Notecards</span></option>
+                    </select>
+                </div>
+                <div class='addNewCommentRow none'>
+                    <textarea id="txtNewComment" class='form-control' data-i18n=""></textarea>
+                    <button id="addNewSaveCommentBtn" type="button" class="btn btn-default btn-sm activeGreen"><span class="glyphicon glyphicon-ok"></span> <span data-i18n="TAGS_MENU_BTN_DONE">Done</span></button>
+                </div>
+                <div class="tableCommentsWrapper">
+                    <table class="table table-hover table-striped commentsTable">
+                        <tbody id="savedCommentsList">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!-- Template to show autocomplete saved comments -->
+<script type="text/template" id="savedComment-template">
+	<% _.each(commentsObj, function(comment) { %>
+		<tr>
+        	<td><span id="sComment-<%=comment.id%>" class="commentDesc" typeid="<%=comment.type%>"><%=comment.comment%></span></td>
+            <td><div class="btn-group">
+            	<button data-toggle="dropdown" class="btn dropdown-toggle btn-xs optionsBtn" type="button"><span data-i18n="BTN_DROPDOWN_OPTION_TITLE">Options</span> <span class="caret"></span></button>
+                <ul role="menu" class="dropdown-menu text-left optionsDropdown">
+                	<li><a class="editComment"><span data-i18n="BTN_DROPDOWN_OPTION_EDIT">Edit</span></a></li>
+                    <li><a class="deleteComment"><span data-i18n="BTN_DROPDOWN_OPTION_DELETE">Delete</span></a></li>
+				</ul>
+			</div></td>
+		</tr>
+	<% }) %>
+</script>
+
+<!-- Modal for displaying error message-->
+<div class="modal fade" id="modalNotification" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" style="z-index: 10000">
+    <div class="modal-dialog popupAlertWidth">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <span class="modal-title popupHeader" id="myModalLabel"><span class="popupTitleFontSize" data-i18n="SELECT_NC_ALERT_HEADER">Alert</span></span>
+            </div>
+
+            <div class="modal-body alertBodyPadding">
+                <div class="row alertRowMargin">
+                    <span class="col-sm-1 dripicons alertIncon">&#xe093;</span>
+                    <span class="col-sm-10" id="alertMessageText"><span data-i18n="SELECT_NC_ALERT_MSG">Please select notecard(s) to delete.</span></span>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm actionButton" data-dismiss="modal" data-i18n="SELECT_NC_ALERT_BTN">Ok</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Template for displaying project from inbox - header section -->
+<script type="text/template" id="projectHeaderFromInbox-template">
+	
+		<table class="table table-hover sharedProjectItems">
+			<thead>
+				<tr>
+					<th data-sorter="false" class="optional"></th>
+					<th class="projectTitle sortProjectInbox projectTitleLength" data-i18n="PROJECT_TITLE"></th>
+					<th class="projectComments"><i class="fa fa-comment"></i></th>
+					<th data-sorter="false" data-i18n="PROJECT_STATUS"></th>
+					<th class="sortProjectInbox reviewProjectCol" data-sorter="shortDate" data-date-format="mmddyyhi" data-i18n="PROJECT_REVIEWED"></th>
+					<th data-sorter="false" data-i18n="PROJECT_STYLE"></th>
+					<th data-sorter="false" data-i18n="PROJECT_LEVEL"></th>
+					<th data-sorter="false" data-i18n="PROJECT_SOURCES"></th>
+					<th data-sorter="false" data-i18n="PROJECT_NOTES"></th>
+					<th data-sorter="false" class="addTimezone" data-i18n="PROJECT_CREATED"></th>
+					<th class="addTimezone sortProjectInbox" data-sorter="shortDate" data-date-format="mmddyyhinotz" data-i18n="PROJECT_MODIFIED"></th>
+					<th class="sharedByCol sortProjectInbox" data-i18n="PROJECT_SHARED"></th>
+					<th data-sorter="false" class="optional"></th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	
+</script>
+
+<script type="text/template" id="shared-project-template">
+	<% _.each(arrProjectList, function(item, i) { %>
+		<tr id="inboxprojrow_<%=item.id%>">
+			
+			<td class="optional"><input type="checkbox" name="sel_inbox_project<%=(i+1)%>" value="<%=item.id%>" class="checkBox" /></td>
+			<td><span class="projectNameDesc cursorPointer"><a id="desc_<%=(i+1)%>" title="<%=item.description%>" class="projectNameDesc" href="javascript:openDashboard('<%=(i+1)%>', '<%=item.id%>', '<%=item.bibstyle%>', '<%=getProjectLevel(item.biblevel)%>', '', 1, '<%=usersharegroupid%>', '')"><%=item.description%></a></span></td>
+			<td><span class="prjInboxCount hide"></span></td>
+			<td><a class="sharedProjectStatus cursorPointer"><%=status[i]%></a><span id="statusOfProject_<%=item.id%>" class="statusView" style="display:none;"><%=statusMessage[i]%></span></td>
+			<td><%=item.lastviewed%></td>
+			<td><%=item.bibstyle%></td>
+			<td><%=getProjectLevel(item.biblevel)%></td>	
+			<td class="sourceCount"><%=item.sourceCnt%></td>
+			<td class="noteCount"><%=item.notecardCnt%></td>
+			<td><%=item.created%></td>
+			<td><%=item.lastaction%></td>
+			<td><div class="sharedByColumn">
+				<% if(item.sharedBy.length > 0){ %>
+					<%=item.sharedBy[0].username%> (<%=item.sharedBy[0].viewablename%>)<br />
+					<% if(item.sharedBy.length > 1){ %>
+						<a class="collaborationTooltip">and other...</a>
+					<% } %>
+					<!-- Tooltip for collaboration view -->
+					<div class="collaborationInfo none">
+						<div><b><u data-i18n="COLLABORATION_STATUS_HEADING"></u></b></div>
+						<div data-i18n="COLLABORATION_STATUS_TEXT"></div><br />
+						<% for(cnt = 0; cnt < item.sharedBy.length; cnt++){ %>
+							<div><%=item.sharedBy[cnt].username%>
+								(<%=item.sharedBy[cnt].viewablename%>) 
+							</div>
+						<% } %>
+					</div>
+				<% } %>
+			</div></td>	
+			<td class="optional">
+				<button data-backdrop="static" class="btn btn-default btn-xs deleteBtn" onclick="doaction('delete','<%=item.id%>');"><i class="fa fa-trash-o trashIcon"></i><span data-i18n="BTN_DELETE"></span></button>
+			</td>									
+		</tr>
+	<% }); %>
+</script>
+
+            <!-- Template for teacher/student comment -->
+            <script type="text/template" id="commentclassification-template">
+            <% _.each(classifications, function(item, i) { %>
+                <div class="radio radioOptionsWidth">
+                      <label><input type="radio" name="optionsRadios" id="optionsRadios<%=item.id%>" value="<%=item.id%>" <%= i == 0 ?  'checked' : '' %>><span> <%=item.title%> </span></label>
+                      <span class="<%=item.iconClass%>">&nbsp;<%=item.icon%></span>
+                </div>
+            <% }); %>
+            </script>
+
+            <!-- Template for bib comment -->
+            <script type="text/template" id="bibcomments-template">
+            <% _.each(comments, function(item, i) { %>
+                <% if (item.parentID == 0 || item.parentID == null) { %>
+                <div class="commentContainer  <% if(item.displayComment == false) { %>none<% } %>" elementTypeID="<%=item.elementTypeID%>" elementID="<%=item.id%>" containerID="<%=item.elementid%>" typeID="<%=item.typeid%>">
+                            <div class="recentComments">
+                                <div class="commentTop">
+                                    <div class="notecardName pull-left"><span class='glyphicon glyphicon-th-large'></span> <span class="comment_notetitle_<%=item.elementid%>"> <%=element.element_title%></span></div>
+                                    <div class="displayDate pull-right" username="<%=item.username%>"><%=item.timestamp%></div>
+                                </div>
+                                <div class="inlineBlock">
+                                    <span class="commentDetails">
+                                        <span class="wrapCommentPanelText">
+                                            <span><%=item.commentViewableName%>: </span>
+                                            <span> <%=item.limittedComment%></span>
+                                        </span>
+                                        <span class="commentStyle"> (<%=item.classification%>)</span>
+                                    </span>
+                                </div>
+                             </div>
+                             <div id="comment_1_<%=item.id%>" class="commentDetailView none">
+                                <div class="chatDetailButtons">
+                                    <div class="deletedElementMsg <% if(element.commentActive){ %>none<% } %>" data-i18n="COMMENT_FOR_NOTECARD_DELETED_MESSAGE">This notecard has been deleted.</div>
+                                    <button type="button" commentThread="comment_1_<%=item.id%>" elementid='<%=item.elementid%>' parentid='<%=item.id%>' class="btn btn-default btn-xs pull-right respondClick" data-i18n="COMMENT_BTN_RESPOND" typeID="<%=item.typeid%>">Respond</button>
+
+                                    <button type='button' class='btn btn-default btn-xs pull-right markAsDoneComment ' elementid='<%=item.elementid%>' typeID="<%=item.typeid%>">Mark as done</button>
+                                    
+                                    <% if(viewincontext){ %>
+                                    <button type="button" class="btn btn-default btn-xs pull-right viewincontext btnViewInContext <% if(!element.commentActive){ %>disabled<% } %>" context='<%=item.typeid%>' contextID='<%=item.elementid%>' entryID='<%=item.entryID%>' data-i18n="COMMENT_BTN_NOTECARDS"></button>
+                                    <% } %>
+
+                                </div>
+                            </div>
+                    </div>
+                <% } %>
+            <% }); %>
+            </script>
+
+            <!-- Template for bib chat comments -->
+            <script type="text/template" id="bibchatcomments-template">
+                <div id="comment_<%=comment.id%>" commentClassficationType="<%=comment.commentClassficationType%>" class="chatDiv <%= comment.isLoggedInUser == false ?  'teacherChat' : 'studentChat' %>" is_response_required="<%=comment.is_response_required%>" markasdone="<%=comment.auto_response%>" viewed="<%=comment.viewed%>">
+                    <div class="inlineComment" style='<% if(comment.isLoggedInUser == false){%> background-color: #<%=comment.chatColor%> <% } %>'>
+                        <div class="commentWordWrap chat_arrow_box" style='<% if(comment.isLoggedInUser == false){%> border-right-color: #<%=comment.chatColor%> !important; <% } %>'><%=comment.comment%></div>
+                    </div>
+                    <div class="nameTimeDivWrap">
+                        <span title="<%=comment.username%>" username="<%=comment.username%>" style='<% if(comment.isLoggedInUser == false){%> color: #<%=comment.chatTextColor%> !important; <% } %>' class="username <%= comment.isLoggedInUser == false ?  'teacherName' : 'studentName' %>" title="<%=comment.username%>"><%= comment.isLoggedInUser == false ?  comment.commentViewableName : '<span data-i18n="ME_LABEL"></span>' %></span><span class='chatTimestamp' timestamp_utc="<%=comment.createdate_utc_ts%>"> (<%=comment.timestamp%>,</span><span class="commentStyle"> <%=comment.classification%>)</span>
+                    </div>
+                </div>
+            </script>
+            
+            
+            <!-- Template for nc info tabletop -->
+            <script type="text/template" id="chatbox">
+            <% if(comment.username == loggedinUserName){ %>
+                <div class="inlineComment bySelfComment marginRight5Per" id="<%=comment.id%>" viewed="<%=comment.viewed%>" responserequired="<%=comment.is_response_required%>" markasdone="<%=comment.auto_response%>">
+                    <div class="commentText chat_arrow_box"><span><%=comment.comment%></span>
+                        <div class='col-xs-12 editCommentView' id="<%=comment.id%>"><div></div></div>
+                    </div>  
+                    <% if (isUserOpenedInbox == 1){ %>
+                        <div class="editCommentpanel">
+                        <span class="editCommentico" id="<%=comment.id%>" elementid="<%=comment.elementid%>"><i class="fa fa-pencil"></i></span>&nbsp;
+                        <span class="deleteCommentico" id="<%=comment.id%>" elementid="<%=comment.elementid%>" typeid="<%=comment.typeid%>"><i class="fa fa-trash-o"></i></span>
+                        </div>
+                    <%}%>
+                 </div>
+                    <div class="commentDetails pull-right marginRight5Per" id="<%=comment.id%>">
+                        <span class="userNameSelf" data-i18n="ME_LABEL">Me</span>
+                        <!-- <span class="commentStyle" classid="<%=comment.classificationid%>"> (<%=comment.classification%>)</span> -->
+                        <span class="commentDateTime" timestamp_utc="<%=comment.createdate_utc_ts%>">(<%=comment.updatedate%>,</span>
+                        <span class="commentStyle" classid="<%=comment.classificationid%>"> <%=comment.classification%>)</span>
+                    </div>
+                    <%}else{%>
+                    <div class="inlineComment byOtherComment marginLeft5Per" id="<%=comment.id%>" chatid="<%=comment.id%>" viewed="<%=comment.viewed%>" style="background-color: #<%=comment.chatColor%> !important;" responserequired="<%=comment.is_response_required%>" markasdone="<%=comment.auto_response%>">
+                        <div class="commentText chat_arrow_box <% if(comment.viewed == 0){%> bold2 <%}%>" style="border-right-color: #<%=comment.chatColor%> !important;"><span><%=comment.comment%></span></div>
+                    </div>
+                    <div class="commentDetails marginLeft5Per" id="<%=comment.id%>">
+                        <span class="userNameOther" style="color: #<%=comment.chatTextColor%> !important;"><%=comment.viewablename%></span>
+                        <!-- <span class="commentStyle" classid="<%=comment.classificationid%>"> (<%=comment.classification%>)</span> -->
+                        <span class="commentDateTime" timestamp_utc="<%=comment.createdate_utc_ts%>">(<%=comment.updatedate%>,</span>
+                        <span class="commentStyle" classid="<%=comment.classificationid%>"> <%=comment.classification%>)</span>
+                    </div>
+                    <%}%>
+            </script>
+            <!-- Template for core comment container structure -->
+            <script type="text/template" id="commentcontainer-template">
+                <div id="collapse<%=panelName%>" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="blankComment <% if(commentCount != 0){ %>none<% } %>">
+                            <span data-i18n="NO_COMMENT_EXIST">All done here!</span>
+                            <img alt="No comment" src="_images/noComments.png" />
+                        </div>
+                        <div class="newComment">
+                            <form id="formComment" name="formComment">
+                            <span id="commentTitleTxt"><span class='glyphicon glyphicon-th-large'></span> <span id="commentTitle">Notecard title</span></span>
+                            <textarea class="form-control" id="txtNewComment" name="txtComment" elementId="" rows="1"></textarea>
+                            <div class="teacherCommentClassification"><!-- Template for teacher comment classifications --></div>
+                            <input type="hidden" class="typeid" value="<%=panelID%>">
+                            <div class="commentBtnsContainer">
+                                <% if ( (isUserTeacher == 1 && isUserOpenedInbox == 1) || isUserPeerReviewer == 1) { %>
+                                    <div class="pull-left"><a href="javascript:;" id="manageSavedComments" class="manageComments" data-i18n="MANAGE_SAVED_COMMENTS">Edit my comment bank</a></div>
+                                <% } %>
+                                <div class="commentbuttons pull-right">
+                                    <button type="submit" id="btnAddComment" class="btn btn-default btn-xs activeGreen" data-i18n="COMMENT_BTN_ADD">Add</button>
+                                    <% if ( (isUserTeacher == 1 && isUserOpenedInbox == 1) || isUserPeerReviewer == 1) { %>
+                                        <button type="submit" id="saveAddComment" class="btn btn-default btn-xs activeGreen" data-i18n="COMMENT_BTN_ADD_SAVE">Save and add</button>
+                                    <% } %>
+                                    <button type="button" class="btn btn-default btn-xs cancelNewComment" data-i18n="COMMENT_BTN_CANCEL">Cancel</button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+
+                        <div class="newResponseComment none" id="respondComment">
+                            <form id="formResponseComment" name="formResponseComment">
+                              <textarea class="form-control" id="txtResponseComment" name="txtComment" elementId="" parentId="" rows="1" ontouchstart="resizeHeightOnFocus()"></textarea>
+                                <div class="respondCommentClassification"><!-- Template for response comment classifications --></div>
+                                <!--div class="respondOnlyCommentClassification">< Template for response only comment classifications for student ></div-->
+                                <div class="commentBtnsContainer">
+                                    <div class="commentbuttons inlineBlock pull-right">
+                                    <% if(isUserTeacher == 1 && isUserOpenedInbox == 1) { %>
+                                    <div class="pull-left">
+                                        <div class="checkbox commentChecbox responseCheckbox">
+                                            <label>
+                                                Require response <input type="checkbox" id="" class="checkbox pull-right responseRequired"/>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox commentChecbox">
+                                            <label>
+                                                Save to my comment bank <input type="checkbox" id="" class="checkbox pull-right saveComment"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                    <div class="pull-right">
+                                        <button type="submit" id="addResponseBtnClick" class="btn btn-default btn-xs activeGreen" data-i18n="COMMENT_BTN_ADD">Add</button>
+                                        <% /*if ( (isUserTeacher == 1 && isUserOpenedInbox == 1) || isUserPeerReviewer == 1) { %>
+                                            <button type="submit" id="saveAddResponseComment" class="btn btn-default btn-xs activeGreen" data-i18n="COMMENT_BTN_ADD_SAVE">Save and add</button>
+                                        <% } */%>
+                                        <button type="button" class="btn btn-default btn-xs cancelResponseBtnClick" data-i18n="COMMENT_BTN_CANCEL">Cancel</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </script>

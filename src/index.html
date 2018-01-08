@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<!-- Bootstrap - git@github.com:pritamgudekar/swim.git / https://github.com/pritamgudekar/swim.git -->
+		<link rel="stylesheet" href="_css/min/bootstrap-3.0.3.min.css" />
+		<link rel="stylesheet" href="_css/min/bootstrap-theme-3.0.3.min.css" />
+		<link rel="stylesheet" href="_css/min/bootstrap-editable.css" />
+		
+		<link rel="stylesheet" href="_css/custom.css" />
+		
+		<!-- JQuery / JQuery UI / Bootstrap -->
+		<script type="text/javascript" src="_scripts/min/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="_scripts/min/jquery-ui-1.10.4.min.js"></script>
+		<script type="text/javascript" src="_scripts/min/jquery.ui.touch-punch.min.js"></script>
+		<script type="text/javascript" src="_scripts/min/jquery.ui.touch.js"></script>
+		<script	type="text/javascript" src="_scripts/min/bootstrap-3.0.3.min.js"></script>
+		<!-- jquery.tablesorter.min.shortdate.js<script	type="text/javascript" src="_scripts/min/jquery.tablesorter.min.js"></script> -->
+		<script	type="text/javascript" src="_scripts/min/jquery.tablesorter.min.shortdate.js"></script>
+		<script type="text/javascript" src="_scripts/min/jquery.tablesorter.widgets.js"></script>
+		<script	type="text/javascript" src="_scripts/min/bootstrap-editable.min.js"></script>
+		<script	type="text/javascript" src="_scripts/min/bootbox.js"></script>
+		
+		<!-- Backbone -->
+		<script type="text/javascript" src="_scripts/min/underscore-1.5.2.min.js"></script>
+		<script type="text/javascript" src="_scripts/min/backbone-1.1.0.min.js"></script>
+		
+		<!-- Model-View-Collections -->
+		<script type="text/javascript" src="_scripts/model/model-common.js"></script>
+		<script type="text/javascript" src="_scripts/collections/collections-common.js"></script>
+		<script type="text/javascript" src="_scripts/view/view-common.js"></script>
+		
+	</head>
+	<body>
+		<div id="container-header"></div>
+		<div id="container-main" class="container">
+			
+		</div>
+		<div id="container-footer"></div>
+		<!-- Templates -->
+		<script type="text/template" id="template-login-register">
+			<div id="containerLoginRegister">
+				<div id="contLet">a</div>
+				<div id="contRight">c</div>
+			</div>
+		</script>
+
+		<script type="text/template" id="template-login">
+			<div id="containerLogin">
+				<h1>Login</h1>
+				<form id="formLogin">
+					<span>Username: </span><input id="txtUsername" /><br />
+					<span>Password: </span><input id="txtPassword" type="password" /><br />
+					<input type="checkbox" id="chkRememberme" /><label for="chkRememberme">Remember me</label><br />
+					<a href="#" id="linkForgotPassword">Forgot password?</a><br />
+					<button id="btnLogin" type="button">Login</button><button id="btnReset" type="reset">Reset</button>
+				</form>
+			</div>
+		</script>
+		
+		<script type="text/template" id="template-register">
+			<div id="containerRegister">
+				<h1>Register</h1>
+				<form id="formRegister">
+					<span>Username: </span><input id="txtRegUsername" /><br />
+					<span>Password: </span><input id="txtRegPassword" type="password" /><br />
+					<button id="btnRegister" type="button">Login</button><button id="btnRegReset" type="reset">Reset</button>
+				</form>
+			</div>
+		</script>
+	</body>
+</html>
