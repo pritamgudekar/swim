@@ -161,3 +161,14 @@ input[type="file"] {
     text-align: center;
     display: inline-block;
 }
+
+#logo{
+	border: 0px solid red;
+	width: 20px;
+    padding-top: 5px;
+    margin-left: 12px;
+}
+
+#logo img{
+	width: 60px;
+}

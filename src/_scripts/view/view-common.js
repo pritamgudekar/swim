@@ -15,7 +15,7 @@ var ViewLogin = Backbone.View.extend({
     el: '#contLet',
 
     events: {
-    	//'click ul.dropdown-menu li a': 'applyRemoveTags',
+    	//'click #btnLogin': 'doLogin'
     },
     
     initialize: function(){
@@ -45,8 +45,24 @@ var ViewRegister = Backbone.View.extend({
     }
 });
 
+$(document).on("click", "#btnLogin", function(){
+	var form = $("#formLogin")[0].elements;
+	if(form.username.value == "pritam" && form.username.value == "pritam"){
+		var url = "http://n-flat.noodletools.com/logon/api/v1.0/user?return_subscriber_info=1&return_details=1&_=1515657827737";
+		doAjaxCall(url);
+		//moveToPage("dashboard.html");
+	}else{
+		alert("Please enter valid username and/or password.");
+		return false;
+	}
+});
+
 $(document).ready(function() {
 	var loginView = new ViewLogon();
 	var loginView = new ViewLogin();
 	var loginView = new ViewRegister();
 });
+
+function moveToPage(page){
+	document.location.href = page;
+}

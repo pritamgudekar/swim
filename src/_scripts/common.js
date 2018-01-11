@@ -2,42 +2,44 @@
 
 //Make a call to the $.ajax()
 function doAjaxCall(param, ajaxSuccess_callback, queueAjaxCall, ajaxFail_callback){
-    if(getCookie("userName") != getDataStorageValue("userName")
-            && getCookie("userName") != ""
-            && getDataStorageValue("userName") != ""
-            && getDataStorageValue("userName") != null){
-        var sessionExpMsg = "Your session as " + getDataStorageValue("userName") + " has expired, likely due to a concurrent login (as user " + getCookie("userName") + ") in a different tab or window. Please click OK to continue.";
-
-        popups.alertMessage(sessionExpMsg, 'OK', '', 'USER_CHANGED');
-        setDataStorageValue("userName", "");
-        return;
-    }
+//    if(getCookie("userName") != getDataStorageValue("userName")
+//            && getCookie("userName") != ""
+//            && getDataStorageValue("userName") != ""
+//            && getDataStorageValue("userName") != null){
+//        var sessionExpMsg = "Your session as " + getDataStorageValue("userName") + " has expired, likely due to a concurrent login (as user " + getCookie("userName") + ") in a different tab or window. Please click OK to continue.";
+//
+//        popups.alertMessage(sessionExpMsg, 'OK', '', 'USER_CHANGED');
+//        setDataStorageValue("userName", "");
+//        return;
+//    }
 
     //param.timeout = ajaxTimoutCounter;
-    if(queueAjaxCall != undefined && !queueAjaxCall){
-        param.timeout = 30000;
-    }
+    //if(queueAjaxCall != undefined && !queueAjaxCall){
+    //    param.timeout = 30000;
+    //}
     if(param.dataType != 'text'){
         param.contentType = "application/json; charset=utf-8";
     }
 
     //Re-initiate the check user session timeout from last backend api called
-    if(param.url.match(/api\/v1.0/i) != null && param.url.match(/api\/v1.0\/ping/i) == null){
-        clearTimeout(checkUserSessionActive);
-        checkUserSessionActive = setTimeout(checkUserSession, checkUserSessionActiveTimer);
-    }
+    //if(param.url.match(/api\/v1.0/i) != null && param.url.match(/api\/v1.0\/ping/i) == null){
+    //    clearTimeout(checkUserSessionActive);
+    //    checkUserSessionActive = setTimeout(checkUserSession, checkUserSessionActiveTimer);
+    //}
 
     var request = $.ajax(param);
 
     request.success(function( result,status,xhr ){
-        ajaxSuccess_callback(result, status, xhr);
+        alert("Success");
+    	//ajaxSuccess_callback(result, status, xhr);
     });
 
     request.fail(function( jqXHR, textStatus ){
         if(ajaxFail_callback != undefined){
             ajaxFail_callback(jqXHR, textStatus);
         }
-        doAjaxErrorHandler(jqXHR, textStatus, {type: 'ajax', render: ajaxSuccess_callback, param: param}, queueAjaxCall);
+        console.log(jqXHR);
+        //doAjaxErrorHandler(jqXHR, textStatus, {type: 'ajax', render: ajaxSuccess_callback, param: param}, queueAjaxCall);
     });
 }
 
