@@ -48,8 +48,11 @@ var ViewRegister = Backbone.View.extend({
 $(document).on("click", "#btnLogin", function(){
 	var form = $("#formLogin")[0].elements;
 	if(form.username.value == "pritam" && form.username.value == "pritam"){
-		var url = "http://n-flat.noodletools.com/logon/api/v1.0/user?return_subscriber_info=1&return_details=1&_=1515657827737";
-		doAjaxCall(url);
+		//var url = "http://n-flat.noodletools.com/logon/api/v1.0/user?return_subscriber_info=1&return_details=1&_=1515657827737";
+		//doAjaxCall(url);
+		setDataStorageValue("username", form.username.value);
+		setDataStorageValue("password", form.password.value);
+		alert("Login successfull!");
 		//moveToPage("dashboard.html");
 	}else{
 		alert("Please enter valid username and/or password.");

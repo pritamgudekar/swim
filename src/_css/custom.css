@@ -71,12 +71,12 @@ input[type="file"] {
 }
 
 #container-header{
-	height: 10%;
+	height: 7%;
 	background-color: #121f1f;
 }
 
 #container-footer{
-	height: 5%;
+	height: 6%;
 	background-color: #121f1f;
 }
 
@@ -93,7 +93,7 @@ input[type="file"] {
 	padding: 5%;
 	background: -webkit-radial-gradient(center, #FFF -100%,rgba(260,178,103,0) 100%,rgba(255,255,255,0) 100%);
     color: #fff !important;
-    height: 85%;
+    height: 87%;
 }
 
 #containerLoginRegister #contLet, #containerLoginRegister #contRight{
@@ -164,11 +164,11 @@ input[type="file"] {
 
 #logo{
 	border: 0px solid red;
-	width: 20px;
+	width: 110px;
     padding-top: 5px;
     margin-left: 12px;
 }
 
 #logo img{
-	width: 60px;
+	width: 70px !important;
 }
