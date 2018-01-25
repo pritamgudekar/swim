@@ -1,0 +1,8 @@
+{
+  "id": null,
+  "userName": "testusername",
+  "fullName": "test user full name",
+  "password": "secret",
+  "phoneNumber": "512-244-3344",
+  "email": "testuser@test.com"
+}
