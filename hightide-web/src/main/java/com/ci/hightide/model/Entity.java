@@ -6,6 +6,8 @@ import java.util.Map;
 public class Entity {
 
     private Map<String, String> attributeMap = new LinkedHashMap<>();
+    private Map<String, String> keyMap = new LinkedHashMap<>();
+
     private String keyAttribute;
     private String keyAttributeValue;
     private Integer version = 1;
@@ -18,7 +20,13 @@ public class Entity {
         attributeMap.put(VERSION_ATTR, String.valueOf(version));
     }
 
-    public Entity( String keyAttribute, String keyAttributeValue,Map<String, String> attributeMap) {
+    public Entity(Map<String, String> keys, Map<String, String> attributes) {
+        keyMap.putAll(keys);
+        attributeMap.putAll(keys);
+        attributeMap.putAll(attributes);
+    }
+
+    public Entity(String keyAttribute, String keyAttributeValue, Map<String, String> attributeMap) {
         this.attributeMap = attributeMap;
         this.keyAttribute = keyAttribute;
         this.keyAttributeValue = keyAttributeValue;
@@ -48,5 +56,9 @@ public class Entity {
 
     public void addAttribute(String name, String value) {
         attributeMap.put(name, value);
+    }
+
+    public Map<String, String> getKeyMap() {
+        return new LinkedHashMap<>(keyMap);
     }
 }
