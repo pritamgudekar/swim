@@ -47,4 +47,21 @@ public class DynamoDbManager implements DataStoreManager {
         }
         return entity;
     }
+
+    @Override
+    public Entity getItem(String tableName, Map<String, AttributeValue> keyMap) {
+        GetItemRequest request = new GetItemRequest().withTableName(tableName).withKey(keyMap);
+        GetItemResult result = client.getItem(request);
+        Entity entity = null;
+        if (result.getItem() != null) {
+            Map<String, String> entityAttributes = result.getItem().entrySet()
+                    .stream().collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().getS()));
+
+            Map<String, String> keys = keyMap.entrySet().stream()
+                    .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().getS()));
+            entity = new Entity(keys, entityAttributes);
+        }
+        return entity;
+
+    }
 }
