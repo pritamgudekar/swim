@@ -167,8 +167,28 @@ input[type="file"] {
 	width: 110px;
     padding-top: 5px;
     margin-left: 12px;
+    display: inline-block; 
+    float: left;
 }
 
 #logo img{
 	width: 70px !important;
 }
+
+.border{
+	border: 0px solid white;
+}
+
+.headerTopMenu{
+	display: inline-block;
+    margin-top: 15px;
+    color: #fff;
+}
+
+.headerTopMenu a{
+	color: #fff;
+}
+
+ .headerMenuSpacer{
+ 	margin: 0px 10px;
+ }
