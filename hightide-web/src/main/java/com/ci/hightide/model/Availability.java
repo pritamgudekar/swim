@@ -1,54 +1,29 @@
 package com.ci.hightide.model;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
-import java.util.Date;
+import java.util.List;
 
-@DynamoDBTable(tableName = "coach-availability")
+
+@DynamoDBTable(tableName = "hightide-coach-availability")
 public class Availability {
-    private DayOfWeek dayOfWeek;
-    private Long startTime;
-    private Long endTime;
-    private Date startDate;
-    private Date endDate;
 
+    private List<AvailabilityWindow> timeWindows;
+    private Long date;
     private String userName;
-
-    private Long id;
-
-    @DynamoDBAttribute
-    public DayOfWeek getDayOfWeek() {
-        return dayOfWeek;
-    }
-
-
-    public void setDayOfWeek(DayOfWeek dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
-    }
+    private String id;
+    private boolean cancelled;
 
     @DynamoDBAttribute
-    public Date getStartDate() {
-        return startDate;
+    public Long getDate() {
+        return date;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setDate(Long date) {
+        this.date = date;
     }
 
-    @DynamoDBAttribute
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-
-    @DynamoDBRangeKey(attributeName = "username")
+    @DynamoDBHashKey(attributeName = "username")
     public String getUserName() {
         return userName;
     }
@@ -57,30 +32,30 @@ public class Availability {
         this.userName = userName;
     }
 
-    @DynamoDBAttribute
-    public Long getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Long startTime) {
-        this.startTime = startTime;
-    }
-
-    @DynamoDBAttribute
-    public Long getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Long endTime) {
-        this.endTime = endTime;
-    }
-
-    @DynamoDBHashKey(attributeName = "id")
-    public Long getId() {
+    @DynamoDBRangeKey(attributeName = "id")
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    @DynamoDBTypeConvertedJson
+    public List<AvailabilityWindow> getTimeWindows() {
+        return timeWindows;
+    }
+
+    public void setTimeWindows(List<AvailabilityWindow> timeWindows) {
+        this.timeWindows = timeWindows;
+    }
+
+    @DynamoDBAttribute
+    public boolean isCancelled() {
+        return cancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        this.cancelled = cancelled;
     }
 }
