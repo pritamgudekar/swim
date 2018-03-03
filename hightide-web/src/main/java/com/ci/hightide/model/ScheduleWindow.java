@@ -1,9 +1,8 @@
 package com.ci.hightide.model;
 
-
 import java.time.LocalTime;
 
-public class AvailabilityWindow {
+public class ScheduleWindow {
 
     private LocalTime startTime;
     private LocalTime endTime;
