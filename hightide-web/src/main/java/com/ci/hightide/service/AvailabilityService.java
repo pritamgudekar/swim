@@ -7,13 +7,14 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.ci.hightide.model.Availability;
 import com.ci.hightide.model.AvailabilityWrapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.time.Instant;
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
@@ -37,12 +38,12 @@ public class AvailabilityService {
 
     private List<Availability> getAvailabilities(AvailabilityWrapper wrapper) {
         List<Availability> availabilities = new ArrayList<>();
-        Instant startDate = Instant.ofEpochMilli(wrapper.getStartDate());
-        Instant endDate = Instant.ofEpochMilli(wrapper.getEndDate());
+        LocalDate startDate = LocalDate.ofEpochDay(wrapper.getStartDate().toEpochDay());
+        LocalDate endDate = LocalDate.ofEpochDay(wrapper.getEndDate().toEpochDay());
 
-        for (Instant date = startDate; date.isBefore(endDate); date = date.plus(1, ChronoUnit.DAYS)) {
+        for (LocalDate date = startDate; date.isBefore(endDate) || date.isEqual(endDate); date = date.plus(1, ChronoUnit.DAYS)) {
             Availability availability = new Availability();
-            availability.setDate(date.toEpochMilli());
+            availability.setLocalDate(date);
             availability.setTimeWindows(wrapper.getTimeWindows());
             availability.setCancelled(false);
             availability.setUserName(wrapper.getUserName());
@@ -53,7 +54,7 @@ public class AvailabilityService {
     }
 
 
-    public List<Availability> getAvailabilityByUserName(String userName) {
+    public List<Availability> getAllAvailabilitiesByUserName(String userName) {
         Map<String, AttributeValue> keyMap = new HashMap<>();
         keyMap.put(":userName", new AttributeValue().withS(userName));
 
@@ -61,6 +62,16 @@ public class AvailabilityService {
                 .withKeyConditionExpression("username = :userName").withExpressionAttributeValues(keyMap);
         // .withFilterExpression("cancelled = :cancelled").withExpressionAttributeValues(filterMap);
         return mapper.query(Availability.class, queryExpression);
+    }
+
+    public List<Availability> getActiveAvailabilitiesByUserName(String userName, boolean isCancelled) {
+        Map<String, AttributeValue> filterMap = new HashMap<>();
+        filterMap.put(":userName", new AttributeValue().withS(userName));
+        filterMap.put(":val2", new AttributeValue().withN(String.valueOf(isCancelled ? 1 : 0)));
+
+        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+                .withFilterExpression("username = :userName and cancelled = :val2").withExpressionAttributeValues(filterMap);
+        return mapper.scan(Availability.class, scanExpression);
     }
 
     public boolean cancelAvailability(String userName, List<String> ids) {
@@ -75,5 +86,15 @@ public class AvailabilityService {
             mapper.save(availability, config);
         }
         return true;
+    }
+
+    public List<Availability> getAvailabilityForCoaches(LocalDate start, LocalDate end) {
+        Map<String, AttributeValue> filterMap = new HashMap<>();
+        filterMap.put(":val1", new AttributeValue().withN(String.valueOf(start.toEpochDay())));
+        filterMap.put(":val2", new AttributeValue().withN(String.valueOf(end.toEpochDay())));
+
+        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+                .withFilterExpression("localDateEpoch >= :val1 and localDateEpoch <= :val2").withExpressionAttributeValues(filterMap);
+        return mapper.scan(Availability.class, scanExpression);
     }
 }

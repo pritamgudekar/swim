@@ -1,28 +1,29 @@
 package com.ci.hightide.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class AvailabilityWrapper {
 
-    private Long startDate;
-    private Long endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String userName;
 
     private List<AvailabilityWindow> timeWindows;
 
-    public Long getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Long startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Long getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Long endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
