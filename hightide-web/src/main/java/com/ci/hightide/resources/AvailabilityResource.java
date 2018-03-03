@@ -1,16 +1,16 @@
 package com.ci.hightide.resources;
 
 
+import com.ci.hightide.model.Availability;
 import com.ci.hightide.model.AvailabilityWrapper;
 import com.ci.hightide.service.AvailabilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 
 @Controller
 @RequestMapping("/coaches")
@@ -29,7 +29,21 @@ public class AvailabilityResource {
     @ResponseBody
     public boolean cancelAvailability(@PathVariable("userName") String userName,
                                       @PathVariable("id") String id) {
-        return availabilityService.cancelAvailability(userName, Arrays.asList(id));
+        return availabilityService.cancelAvailability(userName, Collections.singletonList(id));
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, path = "/getAvailabilityByCoach/{userName}")
+    @ResponseBody
+    public List<Availability> getAvailabilityByCoach(@PathVariable("userName") String userName) {
+        return availabilityService.getAllAvailabilitiesByUserName(userName);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, path = "/getAvailabilityForAllCoaches")
+    @ResponseBody
+    public List<Availability> getAvailabilityForAllCoaches(@RequestParam("startDate") Long start,
+                                                           @RequestParam("endDate") Long end) {
+
+        return availabilityService.getAvailabilityForCoaches(LocalDate.ofEpochDay(start), LocalDate.ofEpochDay(end));
     }
 
 
