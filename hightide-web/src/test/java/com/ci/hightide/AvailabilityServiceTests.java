@@ -135,6 +135,8 @@ public class AvailabilityServiceTests extends AbstractTestNGSpringContextTests {
         assertNotNull(availabilities);
         assertEquals(availabilities.size(), 8);
 
+        assertTrue(availabilities.stream().noneMatch(Availability::isCancelled));
+
         List<Availability> firstUserRange = availabilities.stream().filter(p -> p.getUserName().equals(userName)).collect(Collectors.toList());
         assertEquals(firstUserRange.size(), 4);
         firstUserRange.sort((o1, o2) -> (int) (o1.getLocalDateEpoch() - o2.getLocalDateEpoch()));

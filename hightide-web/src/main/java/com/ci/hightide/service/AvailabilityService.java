@@ -60,17 +60,16 @@ public class AvailabilityService {
 
         DynamoDBQueryExpression<Availability> queryExpression = new DynamoDBQueryExpression<Availability>()
                 .withKeyConditionExpression("username = :userName").withExpressionAttributeValues(keyMap);
-        // .withFilterExpression("cancelled = :cancelled").withExpressionAttributeValues(filterMap);
         return mapper.query(Availability.class, queryExpression);
     }
 
     public List<Availability> getActiveAvailabilitiesByUserName(String userName, boolean isCancelled) {
         Map<String, AttributeValue> filterMap = new HashMap<>();
         filterMap.put(":userName", new AttributeValue().withS(userName));
-        filterMap.put(":val2", new AttributeValue().withN(String.valueOf(isCancelled ? 1 : 0)));
+        filterMap.put(":cancelled", new AttributeValue().withN(String.valueOf(isCancelled ? 1 : 0)));
 
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
-                .withFilterExpression("username = :userName and cancelled = :val2").withExpressionAttributeValues(filterMap);
+                .withFilterExpression("username = :userName and cancelled = :cancelled").withExpressionAttributeValues(filterMap);
         return mapper.scan(Availability.class, scanExpression);
     }
 
@@ -90,11 +89,13 @@ public class AvailabilityService {
 
     public List<Availability> getAvailabilityForCoaches(LocalDate start, LocalDate end) {
         Map<String, AttributeValue> filterMap = new HashMap<>();
-        filterMap.put(":val1", new AttributeValue().withN(String.valueOf(start.toEpochDay())));
-        filterMap.put(":val2", new AttributeValue().withN(String.valueOf(end.toEpochDay())));
+        filterMap.put(":startDate", new AttributeValue().withN(String.valueOf(start.toEpochDay())));
+        filterMap.put(":endDate", new AttributeValue().withN(String.valueOf(end.toEpochDay())));
+        filterMap.put(":cancelled", new AttributeValue().withN(String.valueOf(0)));
+
 
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
-                .withFilterExpression("localDateEpoch >= :val1 and localDateEpoch <= :val2").withExpressionAttributeValues(filterMap);
+                .withFilterExpression("localDateEpoch >= :startDate and localDateEpoch <= :endDate and cancelled = :cancelled ").withExpressionAttributeValues(filterMap);
         return mapper.scan(Availability.class, scanExpression);
     }
 }
