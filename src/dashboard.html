@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<!-- Bootstrap - git@github.com:pritamgudekar/swim.git / https://github.com/pritamgudekar/swim.git -->
+		<link rel="stylesheet" href="_css/min/jquery-ui-1.10.4.custom.min.css" />
+		<link rel="stylesheet" href="_css/vertical-tabs.css" />
+		<link rel="stylesheet" href="_css/min/bootstrap-3.0.3.min.css" />
+		<link rel="stylesheet" href="_css/min/bootstrap-theme-3.0.3.min.css" />
+		<link rel="stylesheet" href="_css/min/bootstrap-editable.css" />
+		
+		<link rel="stylesheet" href="_css/style.css" />
+		<link rel="stylesheet" href="_css/custom.css" />
+		
+		<!-- JQuery / JQuery UI / Bootstrap -->
+		<script type="text/javascript" src="_scripts/min/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="_scripts/min/jquery-ui-1.10.4.min.js"></script>
+		<script type="text/javascript" src="_scripts/min/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="_scripts/min/jquery.ui.touch.js"></script>
+		<script	type="text/javascript" src="_scripts/min/bootstrap-3.0.3.min.js"></script>
+		<script	type="text/javascript" src="_scripts/min/jquery.tablesorter.min.shortdate.js"></script>
+		<script type="text/javascript" src="_scripts/min/jquery.tablesorter.widgets.js"></script>
+		<script	type="text/javascript" src="_scripts/min/bootstrap-editable.min.js"></script>
+		<script	type="text/javascript" src="_scripts/min/bootbox.js"></script>
+		
+		<!-- Backbone -->
+		<script type="text/javascript" src="_scripts/min/underscore-1.5.2.min.js"></script>
+		<script type="text/javascript" src="_scripts/min/backbone-1.1.0.min.js"></script>
+		
+		<script type="text/javascript" src="_scripts/datastorage.js"></script>
+		<script type="text/javascript" src="_scripts/common.js"></script>
+
+		<!-- Model-View-Collections -->
+		<script type="text/javascript" src="_scripts/model/model-common.js"></script>
+		<script type="text/javascript" src="_scripts/collections/collections-common.js"></script>
+		<script type="text/javascript" src="_scripts/view/view-dashboard.js"></script>
+		
+	</head>
+	<body id="body-dashboard">
+		<div></div>
+		<div id="container-header">
+			<div class="w3-bar w3-top header" style="text-align: right;z-index: 111;">
+				<div id="logo" class="border"><a href="http://www.hightideswimming.com/" target="_blank" title="High Tide Swimming"><img src="_images/hightide.png" /></a></div>
+				<div class="headerTopMenu border"><span class="headerMenuSpacer"><a href="http://www.hightideswimming.com" target="_blank" id="linkHome" title="Home">Home</a></span> | <span class="headerMenuSpacer" title="About Us"><a href="http://www.hightideswimming.com#aboutus" target="_blank" id="linkAboutus">About Us</a></span> | <span class="headerMenuSpacer"><a href="javascript:;" id="linkLogout" title="Logout">Logout</a></span></div>
+			</div>
+		</div>
+		<div id="container-main" class="container container-main-tabs">
+			<div id="banner-welcome"><span>Welcome </span><span id="userName" class="uppercase"></span>!</div>
+		</div>
+		<div id="container-footer"></div>
+		<!-- Templates -->
+		<script type="text/template" id="template-tabs-layout">
+			<div id="containerTabsLayout">
+				<ul>
+					<li><a href="#fragment-1"><span>List Schedule</span></a></li>
+					<li><a href="#fragment-2"><span>Students</span></a></li>
+				</ul>
+				<div id="fragment-1"></div>
+				<div id="fragment-2"></div>
+			</div>
+		</script>
+	</body>
+</html>

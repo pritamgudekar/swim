@@ -39,6 +39,10 @@ span.dripicons {
 
 span.fontawesome {
   font-family: fontawesome; }
+  
+.uppercase{
+	text-transform: uppercase;
+}
 
 .latoblack {
   font-family: latoblack; }
@@ -201,3 +205,21 @@ label.error{
  	font-style: italic;
  	margin-top: -10px;
  }
+ 
+ /*
+ * DASHBOARD.html
+ */
+ 
+#body-dashboard{
+	background: url("../_images/gradient-polygon.jpg") no-repeat 0 0 fixed;
+	background-size: 100%;
+}
+
+#banner-welcome{
+	color: #313131;
+	margin-top: -3.7%;
+	margin-bottom: 2%;
+	font-size: 20px;
+	text-align: right;
+}
+ 

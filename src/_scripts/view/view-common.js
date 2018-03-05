@@ -78,9 +78,8 @@ $(document).on("click", "#btnLogin", function(){
 				doAjaxCall(url, function(){
 					setDataStorageValue("username", form.username.value);
 					setDataStorageValue("password", form.password.value);
-					alert("Login successfull!");
+					moveToPage("dashboard.html");
 				});
-				//moveToPage("dashboard.html");
 			}else{
 				alert("Please enter valid username and/or password.");
 				return false;
@@ -133,7 +132,9 @@ $(document).on("click", "#btnRegister", function(){
 			}
 		},
 		submitHandler: function(form) {
-			alert("Congratulations!!!");
+			setDataStorageValue("username", form.username.value);
+			setDataStorageValue("password", form.password.value);
+			moveToPage("dashboard.html");
 	  	}
 	});
 });
@@ -147,16 +148,7 @@ $.validator.addMethod("matchConfirmPassword", function(val, el){
  * ----- Initialize the application -----
  */
 $(document).ready(function() {
-	var loginView = new ViewLogon();
+	var logonView = new ViewLogon();
 	var loginView = new ViewLogin();
-	var loginView = new ViewRegister();
+	var registerView = new ViewRegister();
 });
-
-/**
- * ----- Route to the page -----
- * @param page
- * @returns
- */
-function moveToPage(page){
-	document.location.href = page;
-}
