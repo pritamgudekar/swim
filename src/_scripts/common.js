@@ -30,8 +30,8 @@ function doAjaxCall(param, ajaxSuccess_callback, queueAjaxCall, ajaxFail_callbac
     var request = $.ajax(param);
 
     request.success(function( result,status,xhr ){
-        alert("Success");
-    	//ajaxSuccess_callback(result, status, xhr);
+        //alert("Success");
+    	ajaxSuccess_callback(result, status, xhr);
     });
 
     request.fail(function( jqXHR, textStatus ){

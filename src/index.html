@@ -12,7 +12,8 @@
 		<!-- JQuery / JQuery UI / Bootstrap -->
 		<script type="text/javascript" src="_scripts/min/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript" src="_scripts/min/jquery-ui-1.10.4.min.js"></script>
-		<script type="text/javascript" src="_scripts/min/jquery.ui.touch-punch.min.js"></script>
+		<script type="text/javascript" src="_scripts/min/jquery-ui-1.10.4.min.js"></script>
+		<script type="text/javascript" src="_scripts/min/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="_scripts/min/jquery.ui.touch.js"></script>
 		<script	type="text/javascript" src="_scripts/min/bootstrap-3.0.3.min.js"></script>
 		<!-- jquery.tablesorter.min.shortdate.js<script	type="text/javascript" src="_scripts/min/jquery.tablesorter.min.js"></script> -->
@@ -60,12 +61,13 @@
 		<script type="text/template" id="template-login">
 			<div id="containerLogin">
 				<h1>Login</h1>
-				<form id="formLogin" method="POST">
-					<span>Username: </span><input id="txtUsername" name="username" class="inputText" />
-					<span>Password: </span><input id="txtPassword" name="password" class="inputText" type="password" />
+				<form id="formLogin" class="formLogin" method="POST">
+					<Label for="txtUsername">Username: </Label><input id="txtUsername" name="username" class="inputText" type="text"/>
+					<Label for="txtPassword">Password: </Label><input id="txtPassword" name="password" class="inputText" type="password"/>
 					<input type="checkbox" id="chkRememberme" /><label class="label" for="chkRememberme">Remember me</label>
 					<a href="#" id="linkForgotPassword">Forgot password?</a><br />
-					<button id="btnLogin" class="big_button" type="submit" onclick="return false;">Login</button><button id="btnReset" class="big_button" type="reset">Reset</button>
+					<button id="btnLogin" class="big_button" type="submit">Login</button>
+					<button id="btnReset" class="big_button" type="reset">Reset</button>
 				</form>
 			</div>
 		</script>
@@ -73,13 +75,14 @@
 		<script type="text/template" id="template-register">
 			<div id="containerRegister">
 				<h1>Register</h1>
-				<form id="formRegister">
-					<span>Username: </span><input id="txtRegUsername" class="inputText" />
-					<span>Password: </span><input id="txtRegPassword" class="inputText" type="password" />
-					<span>Confirm password: </span><input id="txtConfirmPassword" class="inputText" type="password" />
-					<span>Phone number: </span><input id="txtPhone" class="inputText" />
-					<span>Email: </span><input id="txtRegPassword" class="inputText" />
-					<button id="btnRegister" class="big_button" type="button">Login</button><button id="btnRegReset" class="big_button" type="reset">Reset</button>
+				<form id="formRegister" method="POST">
+					<label>Username: </label><input id="txtRegUsername" name="username" class="inputText" />
+					<label>Password: </label><input id="txtRegPassword" name="password" class="inputText" type="password" />
+					<label>Confirm password: </label><input id="txtConfirmPassword" name="confirmPassword" class="inputText" type="password" />
+					<label>Phone number: </label><input id="txtPhone" name="phone" class="inputText" maxlength="10" />
+					<span>Email: </span><input id="txtEmail" name="email" class="inputText" />
+					<button id="btnRegister" class="big_button" type="submit">Register</button>
+					<button id="btnRegReset" class="big_button" type="reset">Reset</button>
 				</form>
 			</div>
 		</script>

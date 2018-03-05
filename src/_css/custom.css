@@ -1,5 +1,5 @@
 /*
- * Custom CSS Style for NoodleTools
+ * Custom CSS Style
  */
 @font-face {
   font-family: "dripicons";
@@ -52,7 +52,8 @@ span.fontawesome {
   float: left; }
 
 label {
-  font-weight: normal; }
+  font-weight: normal;
+  margin-bottom: 0px !important; }
 
 textarea {
   resize: none; }
@@ -181,7 +182,8 @@ input[type="file"] {
 
 .headerTopMenu{
 	display: inline-block;
-    margin-top: 15px;
+    margin-top: 17px;
+    margin-right: 40px;
     color: #fff;
 }
 
@@ -191,4 +193,11 @@ input[type="file"] {
 
  .headerMenuSpacer{
  	margin: 0px 10px;
+ }
+ 
+label.error{
+ 	display: block;
+ 	color: #95ff20;
+ 	font-style: italic;
+ 	margin-top: -10px;
  }
