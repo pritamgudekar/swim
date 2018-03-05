@@ -14,6 +14,7 @@ public class ClassSchedule {
     private String userName;
     private String id;
     private boolean cancelled;
+    private boolean archived;
     private String lessonType;
 
     @DynamoDBTypeConvertedJson
@@ -80,5 +81,14 @@ public class ClassSchedule {
 
     public void setLessonType(String lessonType) {
         this.lessonType = lessonType;
+    }
+
+    @DynamoDBAttribute
+    public boolean isArchived() {
+        return archived;
+    }
+
+    public void setArchived(boolean archived) {
+        this.archived = archived;
     }
 }
