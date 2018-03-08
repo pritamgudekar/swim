@@ -51,11 +51,48 @@
 		<script type="text/template" id="template-tabs-layout">
 			<div id="containerTabsLayout">
 				<ul>
-					<li><a href="#fragment-1"><span>List Schedule</span></a></li>
-					<li><a href="#fragment-2"><span>Students</span></a></li>
+					<li><a href="#tab-1"><span>List Schedule</span></a></li>
+					<li><a href="#tab-2"><span>Students</span></a></li>
 				</ul>
-				<div id="fragment-1"></div>
-				<div id="fragment-2"></div>
+				<div id="tab-1"></div>
+				<div id="tab-2"></div>
+			</div>
+		</script>
+		
+		<script type="text/template" id="template-list-appointments">
+			<div id="listAppointments" class="border">
+				<div class="section border">
+					<div class="leftSection border">Student name: </div>
+					<div class="rightSection border">
+						<select class="studentList" name="students">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="opel">Opel</option>
+							<option value="audi">Audi</option>
+						</select>
+						<input type="button" id="btnNewAppointment" value="+ New appointment" />
+					</div>
+				</div>
+				<div class="section border">
+					<div class="leftSection border">Current appointments: </div>
+					<div class="rightSection border">
+						<table id="appointmentList">
+							<tbody>
+								<tr><th>Appointment</th><th></th><th></th></tr>
+								<tr>
+									<td>Appointment 1</td>
+									<td><a href="#">Edit</a></td>
+									<td><a href="#">Delete</a></td>
+								</tr>
+								<tr>
+									<td>Appointment 2</td>
+									<td><a href="#">Edit</a></td>
+									<td><a href="#">Delete</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</script>
 	</body>

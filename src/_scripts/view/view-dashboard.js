@@ -12,6 +12,8 @@ var ViewTabsLayout = Backbone.View.extend({
 		var template = _.template($("#template-tabs-layout").html(), {});
 		this.$el.append(template);
 		$( "#containerTabsLayout" ).tabs().addClass('ui-tabs-vertical ui-helper-clearfix');
+		template = _.template($("#template-list-appointments").html(), {});
+		$("#tab-1").append(template);
 	}
 });
 

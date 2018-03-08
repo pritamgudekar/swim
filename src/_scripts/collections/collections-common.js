@@ -8,7 +8,7 @@
 var ListLogin = Backbone.Collection.extend({
 	initialize: function(models, options) 
 	{
-		this.url = "/api/v1.0/getinboxprojects?usersharegroupid="+options.inboxID;
+		this.url = "";
 	},
 	model: ModelLogin,
 	parse: function(response) {

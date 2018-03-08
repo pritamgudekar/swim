@@ -64,6 +64,10 @@ textarea {
 
 input[type="file"] {
   display: inline; }
+  
+.border{
+	border: 0px solid black;
+}
 
 /*	Template - Login	*/
 #body{
@@ -180,10 +184,6 @@ input[type="file"] {
 	width: 70px !important;
 }
 
-.border{
-	border: 0px solid white;
-}
-
 .headerTopMenu{
 	display: inline-block;
     margin-top: 17px;
@@ -222,4 +222,44 @@ label.error{
 	font-size: 20px;
 	text-align: right;
 }
- 
+
+#listAppointments{
+	margin-left: 4%;
+}
+
+.studentList{
+	width: 30%;
+}
+
+.section{
+	margin: 3% 0;
+}
+
+.leftSection{
+	display: inline-block;
+	width: 20%;
+	vertical-align: top;
+}
+
+.rightSection{
+	display: inline-block;
+	width: 70%;
+	vertical-align: top;
+}
+
+#appointmentList{
+	width: 80%;
+}
+
+#appointmentList, #appointmentList tr, #appointmentList th, #appointmentList td{
+	border: 1px solid #333;
+}
+
+#appointmentList th:first-child{
+	width: 81%;
+	text-align: center;
+}
+
+#btnNewAppointment{
+	float: right;
+}
