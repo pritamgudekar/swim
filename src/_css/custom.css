@@ -248,16 +248,22 @@ label.error{
 	vertical-align: top;
 }
 
+.containterAppointmentList{
+	width: 100%;
+	max-height: 375px;
+    overflow: auto;
+}
+
 #appointmentList{
-	width: 80%;
+	width: 100%;
 }
 
 #appointmentList, #appointmentList tr:FIRST-CHILD{
 	border: 1px solid #333;
 }
 
-#btnNewAppointment{
-	float: right;
+.divBtn{
+	margin-top: 5%;
 }
 
 table tr{
