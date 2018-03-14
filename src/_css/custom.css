@@ -223,8 +223,11 @@ label.error{
 	text-align: right;
 }
 
-#listAppointments{
+.tabContainer{
 	margin-left: 4%;
+}
+
+#listAppointments{
 }
 
 .studentList{
@@ -291,9 +294,22 @@ table tr:NTH-CHILD(even){
 	background: #5c954e;
 	color: #fff;
 	height: 30px;
-    border-radius: 5px;
+	border-radius: 5px;
+	margin-right: 20px;
+	min-width: 120px;
 }
 
 table a{
 	color: #ed9a29 !important;
+}
+
+.radio{
+	margin: 10px;
+	display: inline-block;
+	margin-top: 0px !important;
+}
+
+#remindTime{
+	width: 40px;
+	text-align: center;
 }

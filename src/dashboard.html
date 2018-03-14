@@ -60,15 +60,15 @@
 		</script>
 		
 		<script type="text/template" id="template-list-appointments">
-			<div id="listAppointments" class="border">
+			<div id="listAppointments" class="tabContainer border">
 				<div class="section border">
 					<div class="leftSection border">Student Name: </div>
 					<div class="rightSection border">
 						<select class="studentList" name="students">
-							<option value="volvo">Volvo</option>
-							<option value="saab">Saab</option>
-							<option value="opel">Opel</option>
-							<option value="audi">Audi</option>
+							<option value="1">Student 1</option>
+							<option value="2">Student 2</option>
+							<option value="3">Student 3</option>
+							<option value="4">Student 4</option>
 						</select>
 					</div>
 				</div>
@@ -128,6 +128,86 @@
 					<div class="leftSection border"></div>
 					<div class="rightSection border">
 						<input type="button" id="btnNewAppointment" class="btn-green" value="+ New Appointment" />
+					<div>
+				</div>
+			</div>
+		</script>
+		
+		<script type="text/template" id="template-create-appointment">
+			<div id="createAppointment" class="tabContainer border">
+				<div class="section border">
+					<div class="leftSection border">Lesson Type: </div>
+					<div class="rightSection border">
+						<select class="studentList" name="lessons">
+							<option value="full">Full time</option>
+							<option value="part">Part time</option>
+						</select>
+					</div>
+				</div>
+				<div class="section border">
+					<div class="leftSection border">Student Name: </div>
+					<div class="rightSection border">
+						<select class="studentList" name="students">
+							<option value="1">Student 1</option>
+							<option value="2">Student 2</option>
+						</select>
+					</div>
+				</div>
+				<div class="section border">
+					<div class="leftSection border">Repeat Every Week: </div>
+					<div class="rightSection border">
+						<div class="radio"><input id="yesBox" type="radio" name="repeat" checked /> <label for="#yesBox">Yes</label></div>
+						<div class="radio"><input id="noBox" type="radio" name="repeat" /> <label for="#noBox">No</label></div>
+					</div>
+				</div>
+				<div class="section border">
+					<div class="leftSection border">Select Time: </div>
+					<div class="rightSection border">
+						<select class="studentList" name="times">
+							<option value="07-00-am">07:00 AM</option>
+							<option value="07-30-am">07:30 AM</option>
+							<option value="08-00-am">08:00 AM</option>
+							<option value="08-30-am">08:30 AM</option>
+						</select>
+					</div>
+				</div>
+				<div class="section border">
+					<div class="leftSection border">Day Of Week: </div>
+					<div class="rightSection border">
+						<select class="studentList" name="days">
+							<option value="sunday">Sunday</option>
+							<option value="monday">Monday</option>
+							<option value="tuesday">Tuesday</option>
+							<option value="wednesday">Wednesday</option>
+							<option value="thursday">Thursday</option>
+							<option value="friday">Friday</option>
+							<option value="saturday">Saturday</option>
+						</select>
+					</div>
+				</div>
+				<div class="section border">
+					<div class="leftSection border">Select Coach: </div>
+					<div class="rightSection border">
+						<select class="studentList" name="coaches">
+							<option value="1">Coach A</option>
+							<option value="2">Coach B</option>
+							<option value="3">Coach C</option>
+							<option value="4">Coach D</option>
+							<option value="5">Coach E</option>
+						</select>
+					</div>
+				</div>
+				<div class="section border">
+					<div class="leftSection border"></div>
+					<div class="rightSection border">
+						<input id="remindBox" type="checkbox" name="remind" checked /> <span for="#remindBox">Remind me via email/text before <input id="remindTime" type="text" /> minutes.</label>
+					</div>
+				</div>
+				<div class="section border">
+					<div class="leftSection border"></div>
+					<div class="rightSection border">
+						<input type="button" id="btnCreateAppointment" class="btn-green" value="Save" />
+						<input type="button" id="btnCancelAppointment" class="btn-green" value="Cancel" />
 					<div>
 				</div>
 			</div>

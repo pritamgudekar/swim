@@ -31,3 +31,13 @@ $(document).ready(function() {
 });
 
 $(document).on("click", "#linkLogout", doLogout);
+
+$(document).on("click", "#btnNewAppointment", function(){
+	var template = _.template($("#template-create-appointment").html(), {});
+	$("#tab-1").html(template);
+});
+
+$(document).on("click", "#btnCreateAppointment, #btnCancelAppointment", function(){
+	var template = _.template($("#template-list-appointments").html(), {});
+	$("#tab-1").html(template);
+});
