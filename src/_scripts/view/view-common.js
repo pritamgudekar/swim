@@ -1,3 +1,6 @@
+/**
+ * ----- VIEW: {Left: Login form, Right: Register form} -----
+ */
 var ViewLogon = Backbone.View.extend({
 	el: '#container-main',
 	
@@ -11,6 +14,9 @@ var ViewLogon = Backbone.View.extend({
 	}
 });
 
+/**
+ * ----- VIEW: Login form -----
+ */
 var ViewLogin = Backbone.View.extend({
     el: '#contLet',
 
@@ -28,6 +34,9 @@ var ViewLogin = Backbone.View.extend({
     }
 });
 
+/**
+ * ----- VIEW: Register form -----
+ */
 var ViewRegister = Backbone.View.extend({
     el: '#contRight',
 
@@ -45,27 +54,101 @@ var ViewRegister = Backbone.View.extend({
     }
 });
 
+/**
+ * ----- Submit for login ----- 
+ */
 $(document).on("click", "#btnLogin", function(){
-	var form = $("#formLogin")[0].elements;
-	if(form.username.value == "pritam" && form.username.value == "pritam"){
-		//var url = "http://n-flat.noodletools.com/logon/api/v1.0/user?return_subscriber_info=1&return_details=1&_=1515657827737";
-		//doAjaxCall(url);
-		setDataStorageValue("username", form.username.value);
-		setDataStorageValue("password", form.password.value);
-		alert("Login successfull!");
-		//moveToPage("dashboard.html");
-	}else{
-		alert("Please enter valid username and/or password.");
-		return false;
-	}
+	var form = $("#formLogin");
+	$(form).validate({
+		rules: {
+			username: "required",
+			password: "required"
+		},
+		messages: {
+			username: {
+				required: "Please enter username."
+			},
+			password: {
+				required: "Please enter password."
+			}
+		},
+		submitHandler: function(form) {
+			if(form.username.value == "pritam" && form.password.value == "pritam"){
+				var url = "https://httpbin.org/get";
+				doAjaxCall(url, function(){
+					setDataStorageValue("username", form.username.value);
+					setDataStorageValue("password", form.password.value);
+					moveToPage("dashboard.html");
+				});
+			}else{
+				alert("Please enter valid username and/or password.");
+				return false;
+			}
+	  	}
+	});
 });
 
+/**
+ * ----- Submit for registration ----- 
+ */
+$(document).on("click", "#btnRegister", function(){
+	var form = $("#formRegister");
+	$(form).validate({
+		rules: {
+			username: "required",
+			password: "required",
+			confirmPassword: {
+				required: true,
+				matchConfirmPassword: true
+			},
+			email: {
+				required: true,
+				email: true
+			},
+			phone: {
+				required: true,
+				minlength: 10,
+				digits: true
+			}
+		},
+		messages: {
+			username: {
+				required: "Please enter username."
+			},
+			password: {
+				required: "Please enter password."
+			},
+			confirmPassword: {
+				required: "Please enter confirm password.",
+			},
+			email: {
+				required: "Please enter email address.",
+				email: "Please enter valid email address"
+			},
+			phone: {
+				required: "Please enter phone number.",
+				digits: "Please enter numbers[0-9] only.",
+				minlength: "Please enter valid phone number."
+			}
+		},
+		submitHandler: function(form) {
+			setDataStorageValue("username", form.username.value);
+			setDataStorageValue("password", form.password.value);
+			moveToPage("dashboard.html");
+	  	}
+	});
+});
+
+$.validator.addMethod("matchConfirmPassword", function(val, el){
+	return $("#txtRegPassword").val() === val;
+},
+"Confirm password did not matched.");
+
+/**
+ * ----- Initialize the application -----
+ */
 $(document).ready(function() {
-	var loginView = new ViewLogon();
+	var logonView = new ViewLogon();
 	var loginView = new ViewLogin();
-	var loginView = new ViewRegister();
+	var registerView = new ViewRegister();
 });
-
-function moveToPage(page){
-	document.location.href = page;
-}

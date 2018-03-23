@@ -1,5 +1,5 @@
 /*
- * Custom CSS Style for NoodleTools
+ * Custom CSS Style
  */
 @font-face {
   font-family: "dripicons";
@@ -39,6 +39,10 @@ span.dripicons {
 
 span.fontawesome {
   font-family: fontawesome; }
+  
+.uppercase{
+	text-transform: uppercase;
+}
 
 .latoblack {
   font-family: latoblack; }
@@ -52,13 +56,18 @@ span.fontawesome {
   float: left; }
 
 label {
-  font-weight: normal; }
+  font-weight: normal;
+  margin-bottom: 0px !important; }
 
 textarea {
   resize: none; }
 
 input[type="file"] {
   display: inline; }
+  
+.border{
+	border: 0px solid black;
+}
 
 /*	Template - Login	*/
 #body{
@@ -167,8 +176,140 @@ input[type="file"] {
 	width: 110px;
     padding-top: 5px;
     margin-left: 12px;
+    display: inline-block; 
+    float: left;
 }
 
 #logo img{
 	width: 70px !important;
+}
+
+.headerTopMenu{
+	display: inline-block;
+    margin-top: 17px;
+    margin-right: 40px;
+    color: #fff;
+}
+
+.headerTopMenu a{
+	color: #fff;
+}
+
+ .headerMenuSpacer{
+ 	margin: 0px 10px;
+ }
+ 
+label.error{
+ 	display: block;
+ 	color: #95ff20;
+ 	font-style: italic;
+ 	margin-top: -10px;
+ }
+ 
+ /*
+ * DASHBOARD.html
+ */
+ 
+#body-dashboard{
+	background: url("../_images/gradient-polygon.jpg") no-repeat 0 0 fixed;
+	background-size: 100%;
+}
+
+#banner-welcome{
+	color: #313131;
+	margin-top: -3.7%;
+	margin-bottom: 2%;
+	font-size: 20px;
+	text-align: right;
+}
+
+.tabContainer{
+	margin-left: 4%;
+}
+
+#listAppointments{
+}
+
+.studentList{
+	width: 45%;
+	height: 30px;
+}
+
+.section{
+	margin: 3% 0;
+}
+
+.leftSection{
+	display: inline-block;
+	width: 20%;
+	vertical-align: top;
+}
+
+.rightSection{
+	display: inline-block;
+	width: 70%;
+	vertical-align: top;
+}
+
+.containterAppointmentList{
+	width: 100%;
+	max-height: 375px;
+    overflow: auto;
+}
+
+#appointmentList{
+	width: 100%;
+}
+
+#appointmentList, #appointmentList tr:FIRST-CHILD{
+	border: 1px solid #333;
+}
+
+.divBtn{
+	margin-top: 5%;
+}
+
+table tr{
+	height: 30px;
+}
+
+table tr th, table tr td{
+	padding: 0 5px;
+}
+
+table th:first-child{
+	width: 81%;
+	text-align: center;
+}
+
+table th{
+	background: #b5bec0;
+}
+
+table tr:NTH-CHILD(even){
+	background: #fefee9;
+}
+
+.btn-green{
+	background: #5c954e;
+	color: #fff;
+	height: 30px;
+	border-radius: 5px;
+	margin-right: 20px;
+	min-width: 120px;
+}
+
+table a{
+	color: #ed9a29 !important;
+}
+
+.radio{
+	margin: 10px;
+	display: inline-block;
+	margin-top: 0px !important;
+}
+
+#remindTime{
+	width: 40px;
+	text-align: center;
 }
